@@ -20,13 +20,13 @@
         <input type="submit" id="btn" value="Upload Image">
     </form>
     {% for message in messages %}
-        <div style="color: red;">{{ message }}</div>
+        <div style="color: red;"><h2>{{ message }}</h2></div>
     {% endfor %}
     <hr>
     <h1>All uploaded images</h1>
     {% for image in images %}
         <div style="display: inline;">
-            <a href="{% url 'details' image.id %}" ><img src="{{ image.image.url }}" width="100px" height="100px"></a>
+            <a href="{% url 'details' image.id %}" ><img style="box-shadow: 20px;" src="{{ image.image.url }}" width="100px" height="100px"></a>
         </div>
     {% endfor %}
 </center>

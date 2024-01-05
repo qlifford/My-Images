@@ -11,14 +11,14 @@ def index(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         form.save()
-        messages.success(request, 'Image Uploaded successfully !')
+        messages.success(request, 'Upload Successful !')
         return redirect('/')
     return render(request, 'image/index.html', context)
 
 def delete_image(request, pk):
     image = Image.objects.get(pk=pk)
     image.delete()
-    messages.success(request, 'Image deleted!')
+    messages.success(request, 'Image Deleted!')
     return redirect('/')
 
 def detail(request, pk):
