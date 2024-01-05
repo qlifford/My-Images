@@ -1,8 +1,9 @@
 <br>
 <center>
+ 
     <style>
         #btn{
-            color: rgb(255, 0, 0);
+            color: black;
             height: 50px;
             width: 280px;
 
@@ -18,13 +19,14 @@
             <br>
         <input type="submit" id="btn" value="Upload Image">
     </form>
+    {% for message in messages %}
+        <div style="color: red;">{{ message }}</div>
+    {% endfor %}
     <hr>
     <h1>All uploaded images</h1>
     {% for image in images %}
-    <div class="card" style="text-orientation: sideways-right; display: inline;" >
-        <img src="{{ image.image.url }}" width="100px" height="100px">
-    </div>
-    <div class="img" style="display: inline;">{{ image.name }}</div>
-    
+        <div style="display: inline;">
+            <a href="{% url 'details' image.id %}" ><img src="{{ image.image.url }}" width="100px" height="100px"></a>
+        </div>
     {% endfor %}
 </center>

@@ -1,0 +1,22 @@
+<br>
+<center>
+    <style>
+        #btn{
+            color: rgb(255, 0, 0);
+            height: 50px;
+            width: 280px;
+
+        }
+        #btn:hover {
+            color: blue;
+        }
+    </style>
+    
+    <form method="POST" action="{% url 'delete' image.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <img width="200px" height="200px" src="{{ image.image.url }}" alt="">
+        <br>
+        <hr>
+        <input type="submit" style="color: blue" value="Delete Image">
+    </form>
+</center>
