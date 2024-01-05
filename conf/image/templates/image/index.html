@@ -1,0 +1,30 @@
+<br>
+<center>
+    <style>
+        #btn{
+            color: rgb(255, 0, 0);
+            height: 50px;
+            width: 280px;
+
+        }
+        #btn:hover {
+            color: blue;
+        }
+    </style>
+    <h1>Welcome</h1>
+    <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <br>
+        <input type="submit" id="btn" value="Upload Image">
+    </form>
+    <hr>
+    <h1>All uploaded images</h1>
+    {% for image in images %}
+    <div class="card" style="text-orientation: sideways-right; display: inline;" >
+        <img src="{{ image.image.url }}" width="100px" height="100px">
+    </div>
+    <div class="img" style="display: inline;">{{ image.name }}</div>
+    
+    {% endfor %}
+</center>
